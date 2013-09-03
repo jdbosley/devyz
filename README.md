@@ -11,10 +11,10 @@ The most basic usage of this jQuery plugin is to just download the .js file from
 
 Once included this script will collect all HTML within the body tags of your website and wrap them with in a container which it can then manipulate to emulate various device sizes.
 
-I have only included some standard device sizes that I develop with often, but you may always edit, add to, or remove from the $devyzes which populates device properties.
+I have only included some standard device sizes that I develop with often, but you may always edit, add to, or remove from the $devyzes object which populates device properties.
 
 The idea of this project was a low-impact and easily installed script to ease responsive and mobile website testing during the development cycle.
 
 Please send me any feedback or thoughts on this project as I plan to add improvements and possibly a device list builder via online form inputs.
 
-This plugin includes the libraries jQuery BBQ and jQuery hashchange event by the great "Cowboy" Ben Alman.
+This plugin includes the libraries jQuery BBQ and jQuery hashchange event by the great and powerful "Cowboy" Ben Alman.
