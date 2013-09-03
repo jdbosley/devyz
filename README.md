@@ -1,5 +1,8 @@
 devyz (diˈvīs)
-<span class="lr_dct_spkr lr_dct_spkr_off" jsaction="dob.p" alt="Speaker icon" title="Listen" data-log-string="pronunciation-icon-click" style="display: inline-block;"><input src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4y2P4//8/AyUYQhAH3gNxA7IAIQPmo/H3g/QA8XkgFiBkwHyoYnRQABVfj88AmGZcTuuHyjlgMwBZM7IE3NlQGhQe65EN+I8Dw8MLGgYoFpFqADK/YUAMwOsFigORatFIlYRElaRMWmaiBAMAp0n+3U0kqkAAAAAASUVORK5CYII=" type="image" height="16" width="16" style="height:16px;width:16px"><audio src="//ssl.gstatic.com/dictionary/static/sounds/de/0/device.mp3" oncanplaythrough="this.parentNode.style.display = 'inline-block'" preload="auto"></audio></span>
+
+By Jonathan Bosley http://www.thecodex.us
+
+Example with static page can be found at http://jonathanbosley.com/devyz/devyz_test.html
 =====
 
 Mobile/Responsive Development Helper
