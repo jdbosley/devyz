@@ -1,4 +1,4 @@
-devyz (diˈvīs)
+devyz (diˈvīz)
 =====
 
 Mobile/Responsive Development Helper
