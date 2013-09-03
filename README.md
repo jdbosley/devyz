@@ -1,11 +1,11 @@
 devyz (diˈvīs)
+=====
+
+Mobile/Responsive Development Helper
 
 By Jonathan Bosley http://www.thecodex.us
 
 Example with static page can be found at http://jonathanbosley.com/devyz/devyz_test.html
-=====
-
-Mobile/Responsive Development Helper
 
 The most basic usage of this jQuery plugin is to just download the .js file from here or include it from http://www.jonathanbosley.com/devyz/devyz.js. It must be included after including the jQuery library.
 
