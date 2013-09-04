@@ -1,3 +1,11 @@
+/**********************************************/
+/*
+/*  Devyz: Mobile & Responsive Website Developer Tool v1.0 - 09/04/2013
+/*  By: Jonathan Bosley -> http://www.thecodex.us
+/*  Just include this .js file to your dev site after the jQuery library to have device screen size emulation within your browser
+/*	This Plugin uses "Cowboy" Ben Alman's jQuery BBQ and jQuery Hashchange libraries
+/*
+/**********************************************/
 /*
  * jQuery BBQ: Back Button & Query Library - v1.3pre - 8/26/2010
  * http://benalman.com/projects/jquery-bbq-plugin/
@@ -17,19 +25,15 @@
  */
 (function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);
 $(function(){
-
 	$.devyz = {
-
 		init: function(){
-
 			/**********************************************/
 			/*
 			/* BUILD DEVICES AND DEVICE PROPERTIES LIST. ADD OR REMOVE DEVICES AS NEEDED. 
 			/* ICON NOT USED ON VERSION 1.0 BUT WANTED TO INCLUDE THE ABILITY FOR LATER VERSIONS
 			/* SUGGESTED ICON SIZE LESS THAN 50px SQUARE
 			/*
-			/**********************************************/
-			
+			/**********************************************/			
 			$devyzes = [
 				{
 					"name"	: "Galaxy S Portrait",
@@ -88,20 +92,19 @@ $(function(){
 			];
 			/**********************************************/
 			/*
+			/* SELECT ALL BODY CONTENTS AND WRAP IN THE DEVYZ CONTAINER
+			/*
+			/**********************************************/
+			$contents = $('body').contents();
+			$outer = "<div></div>";
+			$('body').html($outer);
+			$('body > div').attr('id', 'devyz');
+			$('#devyz').html($contents);
+			/**********************************************/
+			/*
 			/* BUILD DEVICES MENU AND ADD TO DOCUMENT
 			/*
 			/**********************************************/
-
-			$contents = $('body').contents();
-
-			$outer = "<div></div>";
-
-			$('body').html($outer);
-
-			$('body > div').attr('id', 'devyz');
-
-			$('#devyz').html($contents);
-
 			$html = "<ul id='devyz-controls'>";
 			for($i=0;$i<$devyzes.length;$i++){
 				$html += "<li><a href='javascript:void(0)' data-width='"+$devyzes[$i]['width']+"' data-height='"+$devyzes[$i]['height']+"'>"+$devyzes[$i]['name'];
@@ -113,13 +116,11 @@ $(function(){
 			$html += "</ul>";
 			$html += "<h2 class='title'></h2>";
 			$('#devyz').append($html);
-
 			/**********************************************/
 			/*
 			/* CREATE ELEMENT STYLES
 			/*
 			/**********************************************/
-
 			//html container styles
 			$hstyle = {
 				'margin-top':'50px',
@@ -131,15 +132,13 @@ $(function(){
 				'background': '#333',
 				'margin'	: '0',
 				'height'	: '100%'
-			}
-			
+			}			
 			//device emulator styles
 			$dstyle = {
 				'background': '#ddd',
 				'margin'	: '50px auto',
 				'overflow'	: 'scroll'
-			};
-			
+			};		
 			//control container styles
 			$cstyle = {
 				'position'	: 'fixed',
@@ -151,23 +150,20 @@ $(function(){
 				'margin'	: '0',
 				'padding'	: '0'
 			};
-
-			//control li styles
+			//control list item styles
 			$lstyle = {
 				'display'			: 'inline-block',
 				'list-style-type'	: 'none',
 				'height-height'		: '50px',
 				'margin-left'		: '20px'
 			};
-
-			//control a styles
+			//control anchor styles
 			$astyle = {
 				'color'				: '#333',
 				'text-decoration'	: 'none',
 				'font'				: '16px/50px calibri, sans-serif',
 			};
-
-			//title styles
+			//device title styles
 			$tstyle = {
 				'color'		: '#ccc',
 				'position'	: 'fixed',
@@ -177,13 +173,11 @@ $(function(){
 				'text-align': 'center',
 				'font'		: '22px calibri, sans-serif'
 			}
-
 			/**********************************************/
 			/*
 			/* APPLY ALL ELEMENT STYLES
 			/*
 			/**********************************************/
-			
 			$('html').css($hstyle);
 			$('body').css($bstyle);
 			$('#devyz').css($dstyle);
@@ -191,24 +185,20 @@ $(function(){
 			$('#devyz-controls li').css($lstyle);
 			$('#devyz-controls li a').css($astyle);
 			$('h2.title').css($tstyle);
-
 			/**********************************************/
 			/*
 			/* SET UP LISTENERS
 			/*
 			/**********************************************/
-
 			$(window).load($.devyz.hashGet);
 			$(window).bind('hashchange', $.devyz.hashGet);
 			$('#devyz-controls a').on('click', $.devyz.hashIt);
 		},
-
 		/**********************************************/
 		/*
 		/* RESIZE DEVYZ
 		/*
 		/**********************************************/
-
 		resize: function(n,w,h){
 			console.log(n+w+h);
 			$('#devyz').animate({
@@ -217,13 +207,11 @@ $(function(){
 			}, 'slow');
 			$('h2.title').text(n);
 		},
-
 		/**********************************************/
 		/*
 		/* FIRE URL HASH CHANGE
 		/*
 		/**********************************************/
-
 		hashIt: function(){
 			var params = new Object;
 			params.n = $(this).text();
@@ -233,23 +221,18 @@ $(function(){
 			window.location.hash = serialize;
 			return false;
 		},
-
 		/**********************************************/
 		/*
 		/* GET URL HASH CHANGE
 		/*
 		/**********************************************/
-
 		hashGet: function(){
 			var hash=$.deparam.fragment();
 			if(!$.isEmptyObject(hash)){
 				$.devyz.resize(hash.n, hash.w, hash.h);
 			}
 		}
-
-
 	}
-
 });
 $(document).ready(function(){
 	$.devyz.init();
