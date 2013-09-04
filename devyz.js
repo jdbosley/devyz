@@ -94,7 +94,7 @@ $(function(){
 
 			$contents = $('body').contents();
 
-			$outer = "<div id='devyz'></div>";
+			$outer = "<div></div>";
 
 			$('body').html($outer);
 
